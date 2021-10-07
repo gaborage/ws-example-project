@@ -50,10 +50,10 @@ public class TransactionController {
         send(channel, trx);
     }
 
-    private void send(Channel<GetStatusResponse> c, Transaction trx) {
+    private void send(Channel<GetStatusResponse> channel, Transaction trx) {
         var message = new GetStatusResponse();
         message.status = trx.status.name();
-        c.send(message);
+        channel.send(message);
     }
 
     public Response failed(Request request) {
